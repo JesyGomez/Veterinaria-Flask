@@ -1,0 +1,36 @@
+<!-- includes Flask -->
+{% include 'defaults/head.html' %}
+
+<body>
+    
+    {% include 'defaults/header.html' %}
+
+    <section class="container">
+
+        <div>
+            <!-- cliente.html -->
+    <h1>{{ title }}</h1>
+    <p>Nombre: {{ cliente[1] }}</p>  <!-- Asegúrate de que el índice corresponda a tu tabla -->
+    <p>Email: {{ cliente[2] }}</p>
+
+        </div>
+
+        <div class="clientes">  <!-- Cambié de users a clientes -->
+            <div class="title">
+                <h1>{{title}}</h1>
+            </div>
+            {% for i in clientes %}  <!-- Cambié de users a clientes -->
+            <a href="/cliente/{{i.id}}">  <!-- Cambié de persona a cliente -->
+                <div class="card p-2 mb-2">
+                    <div class="card-title">
+                        {{i.nombre}}
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>    
+    </section>
+    
+    {% include 'defaults/footer.html' %}
+</body>
+</html>

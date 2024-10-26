@@ -1,0 +1,40 @@
+{% include 'defaults/head.html' %}
+
+<body>
+    
+    {% include 'defaults/header.html' %}
+
+    <section class="container">
+        
+<!-- Formulario para agregar un nuevo cliente -->
+<h2 class="my-4">Agregar Nuevo Tratamiento</h2>
+<form action="/add_cliente" method="POST" class="bg-light p-4 rounded shadow-sm">
+<!-- form_nuevo_tratamiento.html -->
+<!-- <form action="/tratamiento/guardar_nuevo_tratamiento" method="POST"> -->
+    <label for="descripcion">Descripción:</label>
+    <input type="text" name="descripcion" required>
+    
+    <label for="medicamento">Medicamento:</label>
+    <input type="text" name="medicamento" required>
+    
+    <label for="importe">Importe:</label>
+    <input type="number" name="importe" required>
+    
+    <label for="tipoTratamiento">Tipo de Tratamiento:</label>
+    <input type="text" name="tipoTratamiento" required>
+    
+    <label for="activo">Activo:</label>
+    <select name="activo">
+        <option value="1">Sí</option>
+        <option value="0">No</option>
+    </select>
+    
+    <button type="submit">Guardar Tratamiento</button>
+</form>
+
+    </section>
+    {% include 'defaults/footer.html' %}
+
+
+</body>
+</html>

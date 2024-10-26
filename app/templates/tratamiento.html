@@ -1,0 +1,40 @@
+{% include 'defaults/head.html' %}
+
+<body>
+    
+    {% include 'defaults/header.html' %}
+
+    <section class="container">
+        
+        <h1 class="mb-5">{{title}}</h1>
+    
+        <a href="tratamiento.html" class="btn btn-warning">Nuevo Tratamiento</a>
+
+        <div class="h4 text-white">
+            <div class="row">
+                {% for i in tratamientos %}  <!-- Cambiar productos a tratamientos -->
+                <div class="col">
+                    <div class="data d-flex justify-content-between">
+                        <div class="nombre w-75">
+                            {{i[1]}}
+                        </div>
+                        <div class="precio w-25 text-center">
+                            $ {{i[3]}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <a href="/tratamiento/editar_producto/{{i[0]}}" class="btn btn-white"><i class="bi bi-pencil-fill"></i></a>
+                    <a href="/tratamiento/borrar_producto/{{i[0]}}" class="btn btn-white"><i class="bi bi-trash-fill"></i></a>
+                </div>                
+                <hr>
+                {% endfor %}
+            </div>
+        </div>
+        
+    </section>
+    {% include 'defaults/footer.html' %}
+
+
+</body>
+</html>

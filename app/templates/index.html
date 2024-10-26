@@ -1,0 +1,57 @@
+
+<!-- includes Flask -->
+{% include 'defaults/head.html' %}
+
+<body>
+    
+    <!-- comentario de HTML 
+    {#
+    {% ... %} for Statements
+    {{ ... }} for Expressions to print to the template output
+    {# ... #} for Comments not included in the template output
+    #}
+    -->
+    
+    {% include 'defaults/header.html' %}
+
+    <div class="container">
+        <!-- Header -->
+        <h1 class="my-4">Lista de Clientes</h1>
+        
+        <!-- Tabla de Clientes -->
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>DNI</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th>Contacto Alternativo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cliente in clientes %}
+                    <tr>
+                        <td>{{ cliente[1] }}</td>
+                        <td>{{ cliente[2] }}</td>
+                        <td>{{ cliente[3] }}</td>
+                        <td>{{ cliente[4] }}</td>
+                        <td>{{ cliente[5] }}</td>
+                        <td>{{ cliente[6] }}</td>
+                        <td>
+                            <a href="/delete_cliente/{{ cliente[0] }}" class="btn btn-danger btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    
+    
+        {% include 'defaults/footer.html' %}
+        <!-- <script src="{{url_for('static', filename='js/scripts.js')}}"></script> -->
+</body>
+</html>
